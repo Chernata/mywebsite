@@ -1,50 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FFManager — Natalie Chernoivanova</title>
   <meta property="og:title" content="FFManager Case Study — Natalie Chernoivanova" />
-  <meta property="og:description" content="0→1 B2B SaaS platform for football coaches. Shipped MVP in 7 months, 16 international awards." />
+  <meta property="og:description"
+    content="0→1 B2B SaaS platform for football coaches. Shipped MVP in 7 months, 16 international awards." />
   <meta property="og:image" content="https://chernata.xyz/images/thumb.png" />
   <meta property="og:url" content="https://chernata.xyz/ffmanager.html" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://chernata.xyz/images/thumb.png" />
-  <meta name="description" content="FFManager: A toolset for training, tactics, and player development in youth football. Case study by Natalie Chernoivanova." />
+  <meta name="description"
+    content="FFManager: A toolset for training, tactics, and player development in youth football. Case study by Natalie Chernoivanova." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
 
   <style>
     @font-face {
       font-family: 'GT Pressura Mono';
       src: url('fonts/GT-Pressura-LCGV-Mono-Regular.otf') format('opentype');
-      font-weight: 400; font-style: normal; font-display: swap;
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
     }
+
     @font-face {
       font-family: 'GT Pressura Mono';
       src: url('fonts/GT-Pressura-LCGV-Mono-Medium.otf') format('opentype');
-      font-weight: 500; font-style: normal; font-display: swap;
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     :root {
-      --white:      #ffffff;
+      --white: #ffffff;
       --gray-light: #f2f2f0;
       --near-black: #0f0f0e;
-      --accent:     #ff5f30;
-      --gold:       #cfae5d;
-      --border:     #e4e4e0;
-      --gray-mid:   #6b6b6b;
-      --green:      #22c55e;
+      --accent: #ff5f30;
+      --gold: #cfae5d;
+      --border: #e4e4e0;
+      --gray-mid: #6b6b6b;
+      --green: #22c55e;
       --font-serif: 'Instrument Serif', Georgia, serif;
-      --font-sans:  'Manrope', sans-serif;
-      --font-mono:  'GT Pressura Mono', 'Courier New', monospace;
-      --ease-out:   cubic-bezier(0.22, 1, 0.36, 1);
+      --font-sans: 'Manrope', sans-serif;
+      --font-mono: 'GT Pressura Mono', 'Courier New', monospace;
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
       --content-max: 760px;
       --page-pad: 120px;
     }
@@ -56,50 +75,121 @@
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
-    a { text-decoration: none; color: inherit; }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
     /* ─── Navbar ─────────────────────────────────────────────── */
     .navbar {
-      position: sticky; top: 0; z-index: 100;
-      display: flex; justify-content: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
       padding: 14px 16px;
-      background: rgba(255,255,255,0.6);
+      background: rgba(255, 255, 255, 0.6);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
     }
+
     .nav-pill {
-      display: flex; align-items: center; gap: 28px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
       padding: 8px 8px 8px 14px;
-      background: rgba(255,255,255,0.95);
+      background: rgba(255, 255, 255, 0.95);
       border: 1px solid var(--border);
       border-radius: 9999px;
       transition: box-shadow 0.2s var(--ease-out);
     }
-    .nav-pill:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
-    .nav-logo { display: flex; align-items: center; gap: 10px; }
-    .nav-logo-mark { width: 34px; height: 34px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
-    .nav-logo-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .nav-name { font-family: var(--font-sans); font-size: 15px; font-weight: 500; letter-spacing: -0.015em; color: var(--near-black); }
-    .nav-link { font-family: var(--font-sans); font-size: 15px; font-weight: 500; color: var(--gray-mid); letter-spacing: -0.015em; transition: color 0.18s; }
-    .nav-link:hover { color: var(--near-black); }
+
+    .nav-pill:hover {
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .nav-logo-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .nav-name {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: -0.015em;
+      color: var(--near-black);
+    }
+
+    .nav-link {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--gray-mid);
+      letter-spacing: -0.015em;
+      transition: color 0.18s;
+    }
+
+    .nav-link:hover {
+      color: var(--near-black);
+    }
+
     .btn-talk {
-      font-family: var(--font-mono); font-size: 13px; font-weight: 500;
-      letter-spacing: 0.04em; text-transform: uppercase;
-      color: var(--white); background: var(--near-black);
-      border-radius: 9999px; padding: 9px 18px 8px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--near-black);
+      border-radius: 9999px;
+      padding: 9px 18px 8px;
       transition: background 0.18s, transform 0.18s;
     }
-    .btn-talk:hover { background: var(--accent); transform: scale(1.02); }
+
+    .btn-talk:hover {
+      background: var(--accent);
+      transform: scale(1.02);
+    }
 
     /* ─── Back link ─────────────────────────────────────────── */
-    .back-wrap { padding: 40px var(--page-pad) 0; max-width: calc(1200px + var(--page-pad) * 2); margin: 0 auto; }
-    .back-link {
-      font-family: var(--font-sans); font-size: 15px;
-      color: var(--gray-mid); letter-spacing: -0.015em;
-      transition: color 0.18s;
-      display: inline-flex; align-items: center; gap: 6px;
+    .back-wrap {
+      padding: 40px var(--page-pad) 0;
+      max-width: calc(1200px + var(--page-pad) * 2);
+      margin: 0 auto;
     }
-    .back-link:hover { color: var(--near-black); }
+
+    .back-link {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      color: var(--gray-mid);
+      letter-spacing: -0.015em;
+      transition: color 0.18s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .back-link:hover {
+      color: var(--near-black);
+    }
 
     /* ─── Header ─────────────────────────────────────────────── */
     .case-header {
@@ -107,25 +197,51 @@
       max-width: calc(1200px + var(--page-pad) * 2);
       margin: 0 auto;
     }
-    .case-tags { display: flex; gap: 6px; margin-bottom: 20px; }
+
+    .case-tags {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
     .tag-filled {
-      font-family: var(--font-mono); font-size: 13px; font-weight: 500;
-      letter-spacing: 0.04em; color: var(--white); background: var(--near-black);
-      border-radius: 9999px; padding: 4px 12px 5px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      background: var(--near-black);
+      border-radius: 9999px;
+      padding: 4px 12px 5px;
     }
+
     .tag-outline {
-      font-family: var(--font-mono); font-size: 13px; font-weight: 500;
-      letter-spacing: 0.04em; color: var(--gray-mid); background: var(--gray-light);
-      border-radius: 9999px; padding: 4px 12px 5px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--gray-mid);
+      background: var(--gray-light);
+      border-radius: 9999px;
+      padding: 4px 12px 5px;
     }
+
     .case-title {
-      font-family: var(--font-serif); font-style: normal; font-weight: 400;
+      font-family: var(--font-serif);
+      font-style: normal;
+      font-weight: 400;
       font-size: clamp(40px, 4.5vw, 66px);
-      line-height: 1.0; letter-spacing: -0.01em;
+      line-height: 1.0;
+      letter-spacing: -0.01em;
       color: var(--near-black);
-      max-width: 820px; margin-bottom: 48px;
+      max-width: 820px;
+      margin-bottom: 48px;
     }
-    .case-title em { font-style: italic; color: var(--accent); }
+
+    .case-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
 
     /* ─── Meta row ───────────────────────────────────────────── */
     .meta-row {
@@ -134,29 +250,46 @@
       align-items: start;
       gap: 0;
     }
+
     .meta-item {
-      display: flex; flex-direction: column; gap: 5px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
       padding-right: 32px;
     }
-    .meta-item + .meta-item {
+
+    .meta-item+.meta-item {
       border-left: 1px solid var(--border);
       padding-left: 32px;
     }
+
     .meta-label {
-      font-family: var(--font-mono); font-size: 13px;
-      color: var(--accent); letter-spacing: 0.02em;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.02em;
     }
+
     .meta-value {
-      font-family: var(--font-sans); font-size: 15px;
-      color: var(--near-black); line-height: 1.5;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      color: var(--near-black);
+      line-height: 1.5;
       letter-spacing: -0.015em;
     }
 
     /* ─── Hero image ─────────────────────────────────────────── */
-    .hero-img-wrap { padding: 0 var(--page-pad); margin: 0 auto; max-width: calc(1200px + var(--page-pad) * 2); }
+    .hero-img-wrap {
+      padding: 0 var(--page-pad);
+      margin: 0 auto;
+      max-width: calc(1200px + var(--page-pad) * 2);
+    }
+
     .hero-img {
-      width: 100%; max-width: 1200px;
-      height: auto; border-radius: 32px;
+      width: 100%;
+      max-width: 1200px;
+      height: auto;
+      border-radius: 32px;
       display: block;
     }
 
@@ -167,173 +300,333 @@
       margin-left: auto;
       margin-right: auto;
     }
-    .content-col.wide { max-width: none; }
 
-    .spacer-8  { height: 8px; }
-    .spacer-14 { height: 14px; }
-    .spacer-16 { height: 16px; }
-    .spacer-18 { height: 18px; }
-    .spacer-20 { height: 20px; }
-    .spacer-28 { height: 28px; }
-    .spacer-32 { height: 32px; }
-    .spacer-40 { height: 40px; }
-    .spacer-48 { height: 48px; }
-    .spacer-64 { height: 64px; }
+    .content-col.wide {
+      max-width: none;
+    }
+
+    .spacer-8 {
+      height: 8px;
+    }
+
+    .spacer-14 {
+      height: 14px;
+    }
+
+    .spacer-16 {
+      height: 16px;
+    }
+
+    .spacer-18 {
+      height: 18px;
+    }
+
+    .spacer-20 {
+      height: 20px;
+    }
+
+    .spacer-28 {
+      height: 28px;
+    }
+
+    .spacer-32 {
+      height: 32px;
+    }
+
+    .spacer-40 {
+      height: 40px;
+    }
+
+    .spacer-48 {
+      height: 48px;
+    }
+
+    .spacer-64 {
+      height: 64px;
+    }
 
     /* ─── Awards bar ─────────────────────────────────────────── */
     .awards-bar {
       padding: 40px var(--page-pad);
-      display: flex; align-items: center; justify-content: center;
-      gap: 40px; flex-wrap: wrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
       max-width: calc(1200px + var(--page-pad) * 2);
       margin: 0 auto;
     }
+
     .awards-bar-item {
-      font-family: var(--font-mono); font-size: 14px;
-      line-height: 1.4; text-align: center;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      line-height: 1.4;
+      text-align: center;
       max-width: 130px;
     }
-    .awards-bar-item .gold { color: var(--gold); }
-    .awards-leaf { height: 54px; width: auto; opacity: 0.9; flex-shrink: 0; }
+
+    .awards-bar-item .gold {
+      color: var(--gold);
+    }
+
+    .awards-leaf {
+      height: 54px;
+      width: auto;
+      opacity: 0.9;
+      flex-shrink: 0;
+    }
 
     /* ─── Section label ───────────────────────────────────────── */
     .section-label {
-      font-family: var(--font-mono); font-size: 13px; font-weight: 500;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--accent); display: block;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
     }
 
     /* ─── Body text ───────────────────────────────────────────── */
     .body-text {
-      font-family: var(--font-sans); font-size: 18px;
-      line-height: 1.6; letter-spacing: -0.015em;
-      color: var(--near-black); max-width: var(--content-max);
+      font-family: var(--font-sans);
+      font-size: 18px;
+      line-height: 1.6;
+      letter-spacing: -0.015em;
+      color: var(--near-black);
+      max-width: var(--content-max);
     }
-    .body-text p + p { margin-top: 1em; }
-    .body-text ul { padding-left: 24px; }
-    .body-text li { margin-bottom: 0.25em; }
-    .body-text strong { font-weight: 700; }
+
+    .body-text p+p {
+      margin-top: 1em;
+    }
+
+    .body-text ul {
+      padding-left: 24px;
+    }
+
+    .body-text li {
+      margin-bottom: 0.25em;
+    }
+
+    .body-text strong {
+      font-weight: 700;
+    }
 
     /* ─── Challenge headline ──────────────────────────────────── */
     .challenge-headline {
-      font-family: var(--font-serif); font-style: normal; font-weight: 400;
+      font-family: var(--font-serif);
+      font-style: normal;
+      font-weight: 400;
       font-size: clamp(36px, 3.5vw, 49px);
-      line-height: 1.05; letter-spacing: -0.015em;
-      color: var(--near-black); max-width: var(--content-max);
+      line-height: 1.05;
+      letter-spacing: -0.015em;
+      color: var(--near-black);
+      max-width: var(--content-max);
     }
 
     /* ─── Phase cards ─────────────────────────────────────────── */
     .phase-card {
-      display: flex; gap: 20px; align-items: flex-start;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
       background: var(--gray-light);
-      border-radius: 16px; padding: 28px 32px;
+      border-radius: 16px;
+      padding: 28px 32px;
       max-width: var(--content-max);
     }
+
     .phase-number {
-      font-family: var(--font-serif); font-style: italic;
-      font-size: 44px; color: var(--accent);
-      line-height: 1; flex-shrink: 0; width: 36px;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 44px;
+      color: var(--accent);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 36px;
     }
-    .phase-content { flex: 1; }
+
+    .phase-content {
+      flex: 1;
+    }
+
     .phase-title {
-      font-family: var(--font-sans); font-size: 18px; font-weight: 700;
-      line-height: 1.4; color: var(--near-black); margin-bottom: 6px;
+      font-family: var(--font-sans);
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--near-black);
+      margin-bottom: 6px;
     }
+
     .phase-desc {
-      font-family: var(--font-sans); font-size: 18px;
-      line-height: 1.6; color: var(--gray-mid); letter-spacing: -0.015em;
+      font-family: var(--font-sans);
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--gray-mid);
+      letter-spacing: -0.015em;
     }
 
     /* ─── Pill badge ─────────────────────────────────────────── */
     .pill {
-      font-family: var(--font-mono); font-size: 13px; font-weight: 400;
-      color: var(--gray-mid); background: var(--gray-light);
-      border-radius: 9999px; padding: 4px 14px 5px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--gray-mid);
+      background: var(--gray-light);
+      border-radius: 9999px;
+      padding: 4px 14px 5px;
       display: inline-block;
     }
 
     /* ─── Case images ─────────────────────────────────────────── */
     .case-img {
-      width: 100%; max-width: var(--content-max);
-      border-radius: 16px; display: block;
+      width: 100%;
+      max-width: var(--content-max);
+      border-radius: 16px;
+      display: block;
       object-fit: cover;
     }
-    .case-img.bordered { border: 1px solid rgba(0,0,0,0.12); border-radius: 12px; }
+
+    .case-img.bordered {
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 12px;
+    }
 
     /* ─── Two-col images ──────────────────────────────────────── */
     .img-grid-2 {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 16px; max-width: var(--content-max);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: var(--content-max);
     }
-    .img-grid-2 img { width: 100%; border-radius: 12px; object-fit: cover; }
-    .img-grid-2 img.bordered { border: 1px solid rgba(0,0,0,0.12); }
+
+    .img-grid-2 img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .img-grid-2 img.bordered {
+      border: 1px solid rgba(0, 0, 0, 0.12);
+    }
 
     .img-grid-asymm {
-      display: grid; grid-template-columns: 5fr 3fr;
-      gap: 16px; max-width: var(--content-max);
+      display: grid;
+      grid-template-columns: 5fr 3fr;
+      gap: 16px;
+      max-width: var(--content-max);
     }
-    .img-grid-asymm img { width: 100%; border-radius: 12px; object-fit: cover; }
+
+    .img-grid-asymm img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+    }
 
     .img-grid-cape {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 16px; max-width: var(--content-max);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: var(--content-max);
       align-items: center;
     }
-    .img-grid-cape img { width: 100%; border-radius: 12px; object-fit: cover; }
+
+    .img-grid-cape img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+    }
 
     /* ─── Video ───────────────────────────────────────────────── */
     .case-video {
-      width: 100%; max-width: var(--content-max);
-      border-radius: 16px; display: block;
+      width: 100%;
+      max-width: var(--content-max);
+      border-radius: 16px;
+      display: block;
       background: var(--near-black);
     }
+
     .case-video-full {
-      width: 100%; border-radius: 16px; display: block;
+      width: 100%;
+      border-radius: 16px;
+      display: block;
       background: var(--near-black);
     }
 
     /* ─── Impact cards ────────────────────────────────────────── */
     .impact-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 18px; max-width: var(--content-max);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      max-width: var(--content-max);
     }
+
     .impact-card {
-      background: var(--gray-light); border-radius: 16px;
-      padding: 28px; display: flex; flex-direction: column; gap: 8px;
+      background: var(--gray-light);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
+
     .impact-number {
-      font-family: var(--font-serif); font-style: italic;
-      font-size: 44px; color: var(--accent); line-height: 1;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 44px;
+      color: var(--accent);
+      line-height: 1;
     }
+
     .impact-desc {
-      font-family: var(--font-sans); font-size: 15px;
-      color: var(--gray-mid); line-height: 1.55; letter-spacing: -0.015em;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      color: var(--gray-mid);
+      line-height: 1.55;
+      letter-spacing: -0.015em;
     }
 
     /* ─── Quote ───────────────────────────────────────────────── */
     .quote-block {
       max-width: var(--content-max);
-      border-radius: 16px; padding: 32px;
-      display: flex; flex-direction: column; gap: 16px;
+      border-radius: 16px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
+
     .quote-text {
       border-left: 3px solid var(--accent);
       padding-left: 16px;
-      font-family: var(--font-sans); font-size: 18px;
-      line-height: 1.6; letter-spacing: -0.015em;
+      font-family: var(--font-sans);
+      font-size: 18px;
+      line-height: 1.6;
+      letter-spacing: -0.015em;
       color: var(--near-black);
     }
+
     .quote-author {
-      display: flex; align-items: center; gap: 13px;
+      display: flex;
+      align-items: center;
+      gap: 13px;
       padding-left: 20px;
     }
+
     .quote-avatar {
-      width: 40px; height: 40px; border-radius: 50%;
-      object-fit: cover; flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
     }
+
     .quote-name {
-      font-family: var(--font-sans); font-size: 15px;
-      color: var(--near-black); letter-spacing: -0.015em;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      color: var(--near-black);
+      letter-spacing: -0.015em;
     }
 
     /* ─── Next project ────────────────────────────────────────── */
@@ -342,37 +635,67 @@
       padding: 64px var(--page-pad);
       margin-top: 64px;
     }
+
     .next-section-inner {
       max-width: 1200px;
       margin: 0 auto;
     }
+
     .next-label {
-      font-family: var(--font-mono); font-size: 13px; font-weight: 500;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 20px; display: block;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      display: block;
     }
+
     .next-card {
-      display: flex; align-items: center; justify-content: space-between;
-      background: var(--white); border-radius: 20px;
-      padding: 32px 36px; max-width: 1200px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--white);
+      border-radius: 20px;
+      padding: 32px 36px;
+      max-width: 1200px;
       transition: box-shadow 0.2s var(--ease-out);
-      text-decoration: none; color: inherit;
+      text-decoration: none;
+      color: inherit;
     }
-    .next-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.07); }
-    .next-card:hover .next-arrow { transform: translateX(4px); }
+
+    .next-card:hover {
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.07);
+    }
+
+    .next-card:hover .next-arrow {
+      transform: translateX(4px);
+    }
+
     .next-title {
-      font-family: var(--font-serif); font-style: normal; font-weight: 400;
+      font-family: var(--font-serif);
+      font-style: normal;
+      font-weight: 400;
       font-size: clamp(28px, 3vw, 49px);
-      line-height: 1.05; letter-spacing: -0.015em;
-      color: var(--near-black); margin-bottom: 5px;
+      line-height: 1.05;
+      letter-spacing: -0.015em;
+      color: var(--near-black);
+      margin-bottom: 5px;
     }
+
     .next-sub {
-      font-family: var(--font-sans); font-size: 15px;
-      color: var(--gray-mid); letter-spacing: -0.015em;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      color: var(--gray-mid);
+      letter-spacing: -0.015em;
     }
+
     .next-arrow {
-      font-family: var(--font-sans); font-size: 26px;
-      color: var(--near-black); flex-shrink: 0;
+      font-family: var(--font-sans);
+      font-size: 26px;
+      color: var(--near-black);
+      flex-shrink: 0;
       transition: transform 0.2s var(--ease-out);
     }
 
@@ -381,32 +704,87 @@
       opacity: 0;
       transition: opacity 0.65s var(--ease-out);
     }
-    .reveal.visible { opacity: 1; }
+
+    .reveal.visible {
+      opacity: 1;
+    }
 
     /* ─── Mobile ──────────────────────────────────────────────── */
     @media (max-width: 1100px) {
-      :root { --page-pad: 60px; }
-      .hero-img { height: 400px; }
+      :root {
+        --page-pad: 60px;
+      }
+
+      .hero-img {
+        height: 400px;
+      }
     }
+
     @media (max-width: 860px) {
-      :root { --page-pad: 24px; }
-      .hero-img { height: 280px; border-radius: 20px; }
-      .meta-row { flex-direction: column; gap: 20px; }
-      .meta-item + .meta-item { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 20px; }
-      .case-title { font-size: clamp(32px, 7vw, 48px); }
-      .challenge-headline { font-size: clamp(28px, 6vw, 40px); }
-      .img-grid-2, .img-grid-asymm, .img-grid-cape { grid-template-columns: 1fr; }
-      .impact-grid { grid-template-columns: 1fr; }
-      .awards-bar { gap: 24px; }
-      .next-title { font-size: 28px; }
+      :root {
+        --page-pad: 24px;
+      }
+
+      .hero-img {
+        height: 280px;
+        border-radius: 20px;
+      }
+
+      .meta-row {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .meta-item+.meta-item {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid var(--border);
+        padding-top: 20px;
+      }
+
+      .case-title {
+        font-size: clamp(32px, 7vw, 48px);
+      }
+
+      .challenge-headline {
+        font-size: clamp(28px, 6vw, 40px);
+      }
+
+      .img-grid-2,
+      .img-grid-asymm,
+      .img-grid-cape {
+        grid-template-columns: 1fr;
+      }
+
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .awards-bar {
+        gap: 24px;
+      }
+
+      .next-title {
+        font-size: 28px;
+      }
     }
+
     @media (max-width: 480px) {
-      .case-title { font-size: 30px; }
-      .body-text { font-size: 16px; }
-      .phase-desc { font-size: 16px; }
+      .case-title {
+        font-size: 30px;
+      }
+
+      .body-text {
+        font-size: 16px;
+      }
+
+      .phase-desc {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <!-- ─── Navbar ─────────────────────────────────────────────── -->
@@ -435,7 +813,8 @@
       <span class="tag-filled">B2B</span>
       <span class="tag-outline">Sports Tech</span>
     </div>
-    <h1 class="case-title"><em>FFManager:</em> A toolset for training, tactics, and player development in youth football</h1>
+    <h1 class="case-title"><em>FFManager:</em> A toolset for training, tactics, and player development in youth football
+    </h1>
     <div class="meta-row">
       <div class="meta-item">
         <span class="meta-label">YEAR</span>
@@ -443,7 +822,8 @@
       </div>
       <div class="meta-item">
         <span class="meta-label">ROLE</span>
-        <span class="meta-value">Sole IC Senior Product Designer, closely collaborating with the CPO and engineers</span>
+        <span class="meta-value">Sole IC Senior Product Designer, closely collaborating with the CPO and
+          engineers</span>
       </div>
       <div class="meta-item">
         <span class="meta-label">SERVICES</span>
@@ -480,7 +860,9 @@
     <span class="section-label reveal">OVERVIEW</span>
     <div class="spacer-14"></div>
     <div class="body-text reveal">
-      <p>FFManager is a B2B platform that helps youth football academies manage training, player development, and analytics in one place. I designed the entire product from 0→1 as the sole IC designer — 10 user roles, 400+ user scenarios, across 24 clubs, from initial concept through brand identity.</p>
+      <p>FFManager is a B2B platform that helps youth football academies manage training, player development, and
+        analytics in one place. I designed the entire product from 0→1 as the sole IC designer — 10 user roles, 400+
+        user scenarios, across 24 clubs, from initial concept through brand identity.</p>
     </div>
     <div class="spacer-32"></div>
     <span class="section-label reveal">CHALLENGES</span>
@@ -489,7 +871,8 @@
       <p>When I joined the project, I had:</p>
       <ul>
         <li><strong>No design process</strong> — no workflow for reviews, approvals, or developer handoff</li>
-        <li><strong>100+ user stories</strong> mapped across 6 roles covering training, player tracking, analytics, and reporting</li>
+        <li><strong>100+ user stories</strong> mapped across 6 roles covering training, player tracking, analytics, and
+          reporting</li>
         <li><strong>Zero sports domain knowledge</strong> — I'd never worked in football</li>
         <li><strong>7 months to deliver all core features</strong></li>
       </ul>
@@ -511,9 +894,13 @@
     <div class="spacer-16"></div>
     <div class="body-text reveal">
       <ul>
-        <li><strong>No system, no single database, session planning took 30+ minutes per session</strong> — coaches were managing everything manually: training plans in notebooks, sketched drills on paper, match preparation in spreadsheets</li>
-        <li><strong>Player assessments got lost</strong> — post-training ratings scribbled on notepads, never centralized</li>
-        <li><strong>No visibility for analysts</strong> — the league couldn't track training load, injury patterns, or methodology consistency across academies</li>
+        <li><strong>No system, no single database, session planning took 30+ minutes per session</strong> — coaches were
+          managing everything manually: training plans in notebooks, sketched drills on paper, match preparation in
+          spreadsheets</li>
+        <li><strong>Player assessments got lost</strong> — post-training ratings scribbled on notepads, never
+          centralized</li>
+        <li><strong>No visibility for analysts</strong> — the league couldn't track training load, injury patterns, or
+          methodology consistency across academies</li>
       </ul>
     </div>
     <div class="spacer-16"></div>
@@ -522,22 +909,32 @@
     <img src="images/image 7226.png" alt="FFManager session planning interface" class="case-img reveal" />
     <div class="spacer-16"></div>
     <div class="body-text reveal">
-      <p>The deadline was fixed — 7 months, no room to maneuver. Every sprint was planned around it. The foundation was two interconnected systems. First — a FIFA-standard exercise database: structured, categorized, and searchable, with exercises adapted for every training phase. Second — a calendar with three view modes (week, month, year) supporting three event types: trainings, matches, and microcycles.</p>
-      <p>The hardest part of the calendar was microcycles — containers that group multiple sessions into a training block with a specific goal. Coaches build them directly from calendar events: dragging, nesting, adjusting. The year view was equally complex: it had to show load distribution and calendar fill rate at a glance, so coordinators and analysts could evaluate a coach's planning discipline without opening individual sessions.</p>
+      <p>The deadline was fixed — 7 months, no room to maneuver. Every sprint was planned around it. The foundation was
+        two interconnected systems. First — a FIFA-standard exercise database: structured, categorized, and searchable,
+        with exercises adapted for every training phase. Second — a calendar with three view modes (week, month, year)
+        supporting three event types: trainings, matches, and microcycles.</p>
+      <p>The hardest part of the calendar was microcycles — containers that group multiple sessions into a training
+        block with a specific goal. Coaches build them directly from calendar events: dragging, nesting, adjusting. The
+        year view was equally complex: it had to show load distribution and calendar fill rate at a glance, so
+        coordinators and analysts could evaluate a coach's planning discipline without opening individual sessions.</p>
       <p>We rolled out immediately across the entire league: <strong>24 clubs, from day one</strong>.</p>
     </div>
     <div class="spacer-16"></div>
     <span class="pill reveal">Result</span>
     <div class="spacer-16"></div>
     <div class="body-text reveal">
-      <p>Training session planning time dropped 6x — from 30 minutes to 3–5 minutes. Calendar fill rate became the primary success metric: the first number analysts check when evaluating a coach's work.</p>
+      <p>Training session planning time dropped 6x — from 30 minutes to 3–5 minutes. Calendar fill rate became the
+        primary success metric: the first number analysts check when evaluating a coach's work.</p>
     </div>
 
     <div class="spacer-64"></div>
     <h2 class="challenge-headline reveal">Challenge 2: Collect as much data as possible</h2>
     <div class="spacer-16"></div>
     <div class="body-text reveal">
-      <p>With the foundation live and coaches planning digitally, the next question was: what else can we learn? The platform was collecting training data from coaches — but players were invisible. Post-session feedback existed, but only for one role, filled in through a web form after a long training day. The product needed more data, from more people, with less friction.</p>
+      <p>With the foundation live and coaches planning digitally, the next question was: what else can we learn? The
+        platform was collecting training data from coaches — but players were invisible. Post-session feedback existed,
+        but only for one role, filled in through a web form after a long training day. The product needed more data,
+        from more people, with less friction.</p>
     </div>
     <div class="spacer-16"></div>
     <span class="pill reveal">After</span>
@@ -545,8 +942,12 @@
     <img src="images/image 7224.png" alt="FFManager Telegram bot and player reports" class="case-img reveal" />
     <div class="spacer-16"></div>
     <div class="body-text reveal">
-      <p>Players entered the platform as a full role: personal profiles, post-training reports, and daily wellness check-ins to track load balance and flag injury risks. Coaching staff got individual training plans per player and a progress timeline for each athlete.</p>
-      <p>To maximize response rates, all reports for all three roles — coach, analyst, player — moved to Telegram. After each training session, and every morning for wellness check-ins, the bot sends a notification and the user fills it in within seconds. No browser, no login, no friction.</p>
+      <p>Players entered the platform as a full role: personal profiles, post-training reports, and daily wellness
+        check-ins to track load balance and flag injury risks. Coaching staff got individual training plans per player
+        and a progress timeline for each athlete.</p>
+      <p>To maximize response rates, all reports for all three roles — coach, analyst, player — moved to Telegram. After
+        each training session, and every morning for wellness check-ins, the bot sends a notification and the user fills
+        it in within seconds. No browser, no login, no friction.</p>
     </div>
     <div class="spacer-16"></div>
     <span class="pill reveal">Results</span>
@@ -557,14 +958,19 @@
         <li><strong>~12 000</strong> daily player wellness reports</li>
         <li><strong>~10 000</strong> post-training reports</li>
       </ul>
-      <p>Data collection grew exponentially — from a single role filling web forms to three roles reporting daily through Telegram.</p>
+      <p>Data collection grew exponentially — from a single role filling web forms to three roles reporting daily
+        through Telegram.</p>
     </div>
 
     <div class="spacer-64"></div>
     <h2 class="challenge-headline reveal">Challenge 3: Advanced features + brand identity</h2>
     <div class="spacer-16"></div>
     <div class="body-text reveal">
-      <p>More data meant more expectations. With coaches, analysts, and players all reporting daily, the platform had everything it needed to become a real performance tool — but the analytics layer wasn't there yet. Tactical schemes were still being drawn in expensive third-party tools. Camera footage and GPS data existed in isolation. And as the product stepped into the public eye — events, press, marketing campaigns — it was still wearing the parent league's visual identity.</p>
+      <p>More data meant more expectations. With coaches, analysts, and players all reporting daily, the platform had
+        everything it needed to become a real performance tool — but the analytics layer wasn't there yet. Tactical
+        schemes were still being drawn in expensive third-party tools. Camera footage and GPS data existed in isolation.
+        And as the product stepped into the public eye — events, press, marketing campaigns — it was still wearing the
+        parent league's visual identity.</p>
     </div>
     <div class="spacer-16"></div>
     <span class="pill reveal">After</span>
@@ -573,24 +979,35 @@
     <div class="spacer-16"></div>
     <div style="display:grid;grid-template-columns:3fr 2fr;gap:16px;max-width:var(--content-max);">
       <div style="border-radius:12px;overflow:hidden;">
-        <img src="images/image 7288.png" alt="FFManager brand visual" style="width:100%;height:100%;object-fit:cover;display:block;" />
+        <img src="images/image 7288.png" alt="FFManager brand visual"
+          style="width:100%;height:100%;object-fit:cover;display:block;" />
       </div>
-      <video src="images/314683873_AQMfv1he9Ex8do01dsnbMdoycRwDkQ_ojLpoH7YXUggL_sdU5Cwxq9.mp4" autoplay muted loop playsinline style="border-radius:12px;width:100%;height:auto;display:block;"></video>
+      <video src="images/314683873_AQMfv1he9Ex8do01dsnbMdoycRwDkQ_ojLpoH7YXUggL_sdU5Cwxq9.mp4" autoplay muted loop
+        playsinline style="border-radius:12px;width:100%;height:auto;display:block;"></video>
     </div>
     <div style="height:40px;"></div>
-    <img src="images/image 7287.png" alt="FFManager brand visual" class="case-img" style="width:100%;max-width:var(--content-max);border-radius:16px;display:block;" />
+    <img src="images/image 7287.png" alt="FFManager brand visual" class="case-img"
+      style="width:100%;max-width:var(--content-max);border-radius:16px;display:block;" />
     <div class="spacer-16"></div>
     <div class="body-text reveal">
-      <p>The platform became a serious analytics hub. Smart cameras started streaming training and match footage directly into the platform. GPS tracker data — speed, distance, acceleration — was integrated per player. I designed a built-in tactical drawing editor with football-specific elements: field zones, arrows, player positions. No more external tools.</p>
-      <p>Reporting got significantly deeper: detailed match reports, multi-role player assessments, and a match plan feature — allowing coaches to map every game phase across zones and situations before stepping onto the field.</p>
-      <p>In parallel, I proposed and led a full rebrand: 10 coach interviews, a visual system rooted in their world — field markings, training equipment, tactical diagrams. The client accepted and rolled it out across product, marketing, and merch.</p>
+      <p>The platform became a serious analytics hub. Smart cameras started streaming training and match footage
+        directly into the platform. GPS tracker data — speed, distance, acceleration — was integrated per player. I
+        designed a built-in tactical drawing editor with football-specific elements: field zones, arrows, player
+        positions. No more external tools.</p>
+      <p>Reporting got significantly deeper: detailed match reports, multi-role player assessments, and a match plan
+        feature — allowing coaches to map every game phase across zones and situations before stepping onto the field.
+      </p>
+      <p>In parallel, I proposed and led a full rebrand: 10 coach interviews, a visual system rooted in their world —
+        field markings, training equipment, tactical diagrams. The client accepted and rolled it out across product,
+        marketing, and merch.</p>
     </div>
     <div class="spacer-16"></div>
     <span class="pill reveal">Results</span>
     <div class="spacer-16"></div>
     <div class="body-text reveal">
       <ul>
-        <li><strong>16 international awards</strong>: 13 Tagline Awards 2024, 1st place Complex Services &amp; Portals — Workspace Digital Awards 2025, 3rd place G8 Creative Awards Web &amp; App</li>
+        <li><strong>16 international awards</strong>: 13 Tagline Awards 2024, 1st place Complex Services &amp; Portals —
+          Workspace Digital Awards 2025, 3rd place G8 Creative Awards Web &amp; App</li>
         <li>Coaches replaced expensive third-party drawing tools with the built-in editor</li>
         <li>Match preparation moved from scattered notes to structured phase-by-phase planning inside the platform</li>
       </ul>
@@ -618,7 +1035,8 @@
 
     <!-- Screens video -->
     <div class="spacer-16"></div>
-    <video class="case-video reveal" src="images/Screens.mp4" autoplay muted loop playsinline style="border-radius:16px;"></video>
+    <video class="case-video reveal" src="images/Screens.mp4" autoplay muted loop playsinline
+      style="border-radius:16px;"></video>
 
   </div>
 
@@ -643,15 +1061,24 @@
     </div>
     <div class="spacer-18"></div>
     <div class="body-text reveal">
-      <p>FFManager started as a blank canvas and grew into a full analytics platform used across <strong>24 clubs, with 400+ user scenarios across 10 user roles</strong> — 6 shipped in MVP, 4 added in subsequent phases.</p>
-      <p>The numbers tell part of the story: thousands of daily reports, training session planning time reduced 6x, many players developed through the league's system are now appearing for the Kazakhstan national team and signing with professional clubs across Europe.</p>
-      <p>In early 2025, 16-year-old Dastan Satpayev — a QJ League academy product — <strong>was signed by Chelsea for €4M</strong>, the most expensive transfer in Kazakhstan's history. That's the metric no dashboard can capture: a youth tournament becoming a genuine stepping stone to professional football.</p>
-      <p><strong>16 international awards in the first year</strong> — 13 Tagline Awards 2024, 1st place Complex Services &amp; Portals at Workspace Digital Awards 2025, 3rd place G8 Creative Awards Web &amp; App.</p>
+      <p>FFManager started as a blank canvas and grew into a full analytics platform used across <strong>24 clubs, with
+          400+ user scenarios across 10 user roles</strong> — 6 shipped in MVP, 4 added in subsequent phases.</p>
+      <p>The numbers tell part of the story: thousands of daily reports, training session planning time reduced 6x, many
+        players developed through the league's system are now appearing for the Kazakhstan national team and signing
+        with professional clubs across Europe.</p>
+      <p>In early 2025, 16-year-old Dastan Satpayev — a QJ League academy product — <strong>was signed by Chelsea for
+          €4M</strong>, the most expensive transfer in Kazakhstan's history. That's the metric no dashboard can capture:
+        a youth tournament becoming a genuine stepping stone to professional football.</p>
+      <p><strong>16 international awards in the first year</strong> — 13 Tagline Awards 2024, 1st place Complex Services
+        &amp; Portals at Workspace Digital Awards 2025, 3rd place G8 Creative Awards Web &amp; App.</p>
     </div>
     <div class="spacer-16"></div>
     <div class="quote-block reveal">
       <div class="quote-text">
-        "Thanks to the detailed project planning and step-by-step execution, we managed to launch the MVP of a complex product 7 months after starting work — right within the optimistic timeline we set at the beginning. The platform's simple and intuitive interface helped football coaches quickly get the hang of a completely new tool and start using it in their daily routine for planning and analyzing training sessions right after launch."
+        "Thanks to the detailed project planning and step-by-step execution, we managed to launch the MVP of a complex
+        product 7 months after starting work — right within the optimistic timeline we set at the beginning. The
+        platform's simple and intuitive interface helped football coaches quickly get the hang of a completely new tool
+        and start using it in their daily routine for planning and analyzing training sessions right after launch."
       </div>
       <div class="quote-author">
         <img src="images/Ellipse 1254.png" alt="Yuriy Voropaev" class="quote-avatar" />
@@ -668,27 +1095,34 @@
     <h2 class="challenge-headline reveal">What I'd do differently</h2>
     <div class="spacer-18"></div>
     <div class="body-text reveal">
-      <p>I'd skip Ant Design and build a custom modular system from day one. Choosing a ready-made library felt like the right call under time pressure — but the savings at the start were paid back later, with interest. Around 40% of components had to be built from scratch anyway because football-specific UI simply didn't exist in Ant Design. Mixing custom code with the library meant no clean UI kit, and getting Storybook into a coherent state required weeks of refactoring. The final blow came with AI-assisted prototyping: the chaotic component structure broke prompts and slowed iteration at exactly the moment when speed mattered most. A clean, modular foundation would have paid off many times over.</p>
+      <p>I'd skip Ant Design and build a custom modular system from day one. Choosing a ready-made library felt like the
+        right call under time pressure — but the savings at the start were paid back later, with interest. Around 40% of
+        components had to be built from scratch anyway because football-specific UI simply didn't exist in Ant Design.
+        Mixing custom code with the library meant no clean UI kit, and getting Storybook into a coherent state required
+        weeks of refactoring. The final blow came with AI-assisted prototyping: the chaotic component structure broke
+        prompts and slowed iteration at exactly the moment when speed mattered most. A clean, modular foundation would
+        have paid off many times over.</p>
     </div>
   </div>
 
   <!-- ─── Ball video ────────────────────────────────────────────── -->
   <div class="spacer-48"></div>
   <div style="padding: 0 var(--page-pad); max-width: calc(1200px + var(--page-pad) * 2); margin: 0 auto;">
-    <video class="case-video-full reveal" src="images/Ball_video_horizonlal.mp4" autoplay muted loop playsinline style="max-height:430px;object-fit:cover;"></video>
+    <video class="case-video-full reveal" src="images/Ball_video_horizonlal.mp4" autoplay muted loop playsinline
+      style="max-height:430px;object-fit:cover;"></video>
   </div>
 
   <!-- ─── Next project ──────────────────────────────────────────── -->
   <div class="next-section">
     <div class="next-section-inner">
-    <span class="next-label">NEXT PROJECT</span>
-    <a href="ozon-rocket.html" class="next-card">
-      <div>
-        <div class="next-title">Ozon Rocket — B2B2C delivery platform</div>
-        <div class="next-sub">~2M parcels/day · B2B2С · 2021–2022</div>
-      </div>
-      <div class="next-arrow">→</div>
-    </a>
+      <span class="next-label">NEXT PROJECT</span>
+      <a href="ozon-rocket" class="next-card">
+        <div>
+          <div class="next-title">Ozon Rocket — B2B2C delivery platform</div>
+          <div class="next-sub">~2M parcels/day · B2B2С · 2021–2022</div>
+        </div>
+        <div class="next-arrow">→</div>
+      </a>
     </div>
   </div>
 
@@ -706,4 +1140,5 @@
   </script>
 
 </body>
+
 </html>
