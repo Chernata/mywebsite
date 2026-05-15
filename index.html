@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Natalie Chernoivanova — Senior Product Designer</title>
+  <meta name="description" content="Product designer who turns complex workflows into tools people actually use. Based in Berlin, open to full-time roles in Europe." />
+
+  <!-- Instrument Serif + Manrope from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── GT Pressura Mono — локальные файлы ────────────────── */
+    @font-face {
+      font-family: 'GT Pressura Mono';
+      src: url('fonts/GT-Pressura-LCGV-Mono-Regular.otf') format('opentype');
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'GT Pressura Mono';
+      src: url('fonts/GT-Pressura-LCGV-Mono-Medium.otf') format('opentype');
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+    }
+
+    /* ─── Reset ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    /* ─── Tokens ─────────────────────────────────────────────── */
+    :root {
+      --white:      #ffffff;
+      --gray-light: #f2f2f0;
+      --near-black: #0f0f0e;
+      --accent:     #ff5f30;
+      --border:     #e4e4e0;
+      --gray-mid:   #6b6b6b;
+      --green:      #22c55e;
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --font-sans:  'Manrope', sans-serif;
+      --font-mono:  'GT Pressura Mono', 'Courier New', monospace;
+      --ease-out:   cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* ─── Base ─────────────────────────────────────────────── */
+    body {
+      font-family: var(--font-sans);
+      background: var(--white);
+      color: var(--near-black);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* ─── Navbar ─────────────────────────────────────────────── */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .nav-pill {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding: 8px 8px 8px 14px;
+      background: rgba(255,255,255,0.95);
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      transition: box-shadow 0.2s var(--ease-out);
+    }
+    .nav-pill:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-logo-mark {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .nav-logo-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .nav-name {
+      font-family: var(--font-sans);
+      font-size: 15px; font-weight: 500;
+      letter-spacing: -0.015em;
+      color: var(--near-black);
+    }
+    .nav-link {
+      font-family: var(--font-sans);
+      font-size: 15px; font-weight: 500;
+      color: var(--gray-mid);
+      letter-spacing: -0.015em;
+      transition: color 0.18s;
+    }
+    .nav-link:hover { color: var(--near-black); }
+    .btn-talk {
+      font-family: var(--font-mono);
+      font-size: 13px; font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--near-black);
+      border-radius: 9999px;
+      padding: 9px 18px 8px;
+      transition: background 0.18s, transform 0.18s;
+    }
+    .btn-talk:hover { background: var(--accent); transform: scale(1.02); }
+
+    /* ─── Hero ─────────────────────────────────────────────── */
+    .hero { padding: 80px 120px; max-width: 1440px; margin: 0 auto; }
+    .hero-badges { display: flex; gap: 6px; margin-bottom: 28px; }
+    .badge {
+      font-family: var(--font-mono);
+      font-weight: 400;
+      display: flex; align-items: center; gap: 6px;
+      font-size: 13px; color: var(--gray-mid);
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      padding: 4px 12px 5px;
+      background: var(--white);
+    }
+    .badge.gray { background: var(--gray-light); border-color: var(--gray-light); }
+    .badge-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+    }
+    .hero-headline {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: clamp(48px, 5vw, 68px);
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+      color: var(--near-black);
+      max-width: 700px;
+      margin-bottom: 24px;
+    }
+    .hero-headline em {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--accent);
+    }
+    .hero-sub {
+      font-family: var(--font-sans);
+      font-size: 18px; line-height: 1.6;
+      color: var(--gray-mid);
+      max-width: 500px; margin-bottom: 36px;
+      letter-spacing: -0.015em;
+    }
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* ─── Buttons ─────────────────────────────────────────────── */
+    .btn-primary {
+      font-family: var(--font-mono);
+      font-weight: 500;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--white); background: var(--near-black);
+      border: none; border-radius: 9999px;
+      padding: 14px 24px; cursor: pointer;
+      transition: background 0.18s var(--ease-out), transform 0.18s var(--ease-out);
+    }
+    .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+    .btn-ghost {
+      font-family: var(--font-mono);
+      font-weight: 500;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--near-black); background: transparent;
+      border: 1px solid var(--border); border-radius: 9999px;
+      padding: 14px 24px; cursor: pointer;
+      transition: border-color 0.18s, transform 0.18s var(--ease-out);
+    }
+    .btn-ghost:hover { border-color: var(--near-black); transform: translateY(-1px); }
+
+    /* ─── Work ─────────────────────────────────────────────── */
+    .work { padding: 72px 120px 80px; max-width: 1440px; margin: 0 auto; }
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 13px; font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+    .cards { display: flex; flex-direction: column; gap: 20px; }
+
+    /* ─── Card ─────────────────────────────────────────────── */
+    .card {
+      display: flex; align-items: stretch;
+      border: 1px solid var(--border);
+      border-radius: 20px; overflow: hidden;
+      background: var(--white);
+      text-decoration: none; color: inherit;
+      transition: transform 0.28s var(--ease-out), box-shadow 0.28s var(--ease-out);
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.08); }
+    .card:hover .card-arrow { transform: translateX(4px); }
+    .card:hover .card-visual img { transform: scale(1.03); }
+
+    .card-text {
+      padding: 44px; width: 510px;
+      flex-shrink: 0; display: flex; flex-direction: column;
+    }
+    .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px; }
+    .tag-filled {
+      font-family: var(--font-mono);
+      font-size: 12px; font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--white); background: var(--near-black);
+      border-radius: 9999px; padding: 4px 12px 5px;
+    }
+    .tag-outline {
+      font-family: var(--font-mono);
+      font-size: 12px; font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--gray-mid); background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 9999px; padding: 4px 12px 5px;
+    }
+    .card-meta {
+      font-family: var(--font-mono);
+      font-size: 13px; font-weight: 400;
+      color: var(--accent); margin-bottom: 10px;
+    }
+    .card-title {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: normal; font-weight: 400;
+      font-size: 46px; line-height: 1.05;
+      letter-spacing: -0.015em;
+      color: var(--near-black); margin-bottom: 14px;
+    }
+    .card-desc {
+      font-family: var(--font-sans);
+      font-size: 15px; line-height: 1.55;
+      color: var(--gray-mid);
+      letter-spacing: -0.015em; margin-bottom: 14px;
+    }
+    .card-awards { margin-bottom: 14px; }
+    .awards-img { height: 40px; width: auto; display: block; }
+    .card-cta {
+      font-family: var(--font-mono);
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--near-black); margin-top: auto;
+    }
+    .card-arrow {
+      font-size: 16px;
+      font-family: var(--font-sans);
+      transition: transform 0.2s var(--ease-out);
+    }
+    .card-visual {
+      flex: 1; min-width: 0;
+      background: var(--gray-light);
+      overflow: hidden;
+      border-radius: 0 16px 16px 0;
+    }
+    .card-visual img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      display: block;
+      transition: transform 0.5s var(--ease-out);
+    }
+
+    /* ─── About ─────────────────────────────────────────────── */
+    .about { background: var(--gray-light); padding: 80px 120px; display: flex; justify-content: center; }
+    .about > .about-inner { width: 100%; }
+    .about-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 360px 1fr;
+      gap: 44px; align-items: stretch;
+    }
+    .about-photo {
+      width: 360px; min-height: 360px;
+      border-radius: 20px; overflow: hidden;
+      background: var(--border);
+    }
+    .about-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 10%;
+      display: block;
+    }
+    .about-content { display: flex; flex-direction: column; justify-content: center; gap: 20px; padding-top: 0; }
+    .about-headline {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: normal; font-weight: 400;
+      font-size: clamp(48px, 4.5vw, 62px);
+      line-height: 1.05; letter-spacing: -0.025em;
+      color: var(--near-black);
+    }
+    .about-headline em {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: italic; font-weight: 400;
+      color: var(--accent);
+    }
+    .about-bio {
+      font-family: var(--font-sans);
+      font-size: 18px; line-height: 1.65;
+      color: var(--gray-mid);
+      letter-spacing: -0.015em; max-width: 560px;
+    }
+    .about-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+
+    /* ─── Contact ─────────────────────────────────────────────── */
+    .contact {
+      padding: 96px 120px; background: var(--white);
+      text-align: center;
+      display: flex; flex-direction: column; align-items: center; gap: 20px;
+    }
+    .contact-headline {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: normal; font-weight: 400;
+      font-size: clamp(40px, 4vw, 54px);
+      line-height: 1.1; letter-spacing: -0.02em;
+      color: var(--near-black);
+    }
+    .contact-sub {
+      font-family: var(--font-sans);
+      font-size: 18px; color: var(--gray-mid);
+      line-height: 1.6; letter-spacing: -0.015em;
+    }
+    .contact-email-wrap {
+      margin-top: 8px;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .contact-email {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: normal; font-weight: 400;
+      font-size: 30px; color: var(--near-black);
+      letter-spacing: -0.02em; line-height: 1.2;
+      transition: color 0.18s;
+    }
+    .contact-email:hover { color: var(--accent); }
+    .contact-email-line { width: 200px; height: 2px; background: var(--accent); margin-top: 4px; }
+
+    /* ─── Footer ─────────────────────────────────────────────── */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 120px;
+      display: flex; align-items: center; justify-content: space-between;
+      font-family: var(--font-sans);
+      font-size: 14px; color: var(--gray-mid);
+    }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-link {
+      color: var(--near-black);
+      text-decoration: underline; text-underline-offset: 3px;
+      transition: color 0.18s;
+    }
+    .footer-link:hover { color: var(--accent); }
+
+    /* ─── Animations ─────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { opacity: 0; animation: fadeUp 0.7s var(--ease-out) forwards; }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.22s; }
+    .delay-3 { animation-delay: 0.38s; }
+    .delay-4 { animation-delay: 0.54s; }
+
+    .reveal {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── Mobile ─────────────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .hero, .work, .about, .contact, .footer { padding-left: 60px; padding-right: 60px; }
+      .card-text { width: 420px; }
+      .card-title { font-size: 38px; }
+    }
+    @media (max-width: 860px) {
+      .hero { padding: 48px 24px 60px; }
+      .work { padding: 56px 24px 64px; }
+      .about { padding: 56px 24px 64px; }
+      .contact { padding: 64px 24px; }
+      .footer { padding: 20px 24px; flex-direction: column; gap: 16px; text-align: center; }
+      .nav-pill { gap: 16px; }
+      .hero-headline { font-size: clamp(36px, 8vw, 52px); }
+      .hero-sub { font-size: 16px; }
+      .card { flex-direction: column; }
+      .card-text { width: 100%; padding: 28px 24px; }
+      .card-title { font-size: 32px; }
+      .card-visual { height: 260px; border-radius: 0 0 16px 16px; }
+      .about-inner { grid-template-columns: 1fr; }
+      .about-photo { width: 100%; height: 360px; }
+      .about-bio { font-size: 16px; }
+      .contact-headline { font-size: clamp(32px, 7vw, 44px); }
+      .contact-email { font-size: 22px; }
+    }
+    @media (max-width: 480px) {
+      .hero-headline { font-size: 34px; }
+      .card-title { font-size: 28px; }
+      .hero-ctas, .about-ctas { flex-direction: column; }
+      .footer-links { flex-direction: column; gap: 12px; align-items: center; }
+    }
+  </style>
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=109208817', 'ym');
+    ym(109208817, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/109208817" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+</head>
+<body>
+
+  <!-- ─── Navbar ─────────────────────────────────────────────── -->
+  <nav class="navbar">
+    <div class="nav-pill">
+      <a href="/" class="nav-logo">
+        <div class="nav-logo-mark">
+          <img src="images/Ellipse.png" alt="Natalie Cher logo" />
+        </div>
+        <span class="nav-name">Natalie Cher</span>
+      </a>
+      <a href="#work" class="nav-link">Work</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="mailto:hi@chernata.works" class="btn-talk">Let's talk</a>
+    </div>
+  </nav>
+
+  <!-- ─── Hero ─────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-badges fade-up delay-1">
+      <span class="badge"><span class="badge-dot"></span>Open to work</span>
+      <span class="badge gray">Berlin, Germany</span>
+    </div>
+    <h1 class="hero-headline fade-up delay-2">
+      Product &amp; Visual Designer turning complex workflows into tools people <em>actually</em> use
+    </h1>
+    <p class="hero-sub fade-up delay-3">
+      9+ years shipping complex B2B and B2C products — strong visual craft, research to handoff.
+    </p>
+    <div class="hero-ctas fade-up delay-4">
+      <a href="#work" class="btn-primary">See my work</a>
+      <a href="#about" class="btn-ghost">About me</a>
+    </div>
+  </section>
+
+  <!-- ─── Work ─────────────────────────────────────────────── -->
+  <section class="work" id="work">
+    <p class="section-label reveal">Selected Work</p>
+    <div class="cards">
+
+      <!-- FFManager -->
+      <a href="ffmanager.html" class="card reveal">
+        <div class="card-text">
+          <div class="card-tags">
+            <span class="tag-filled">B2B</span>
+            <span class="tag-outline">Sports Tech</span>
+          </div>
+          <p class="card-meta">FFManager · 2024–Present</p>
+          <h2 class="card-title">Football coach platform</h2>
+          <p class="card-desc">Sole designer on a 0→1 B2B for football coaches. Shipped MVP in 7 months — web + Telegram bot, 50+ user scenarios, 6 user roles.</p>
+          <div class="card-awards">
+            <img src="images/Awards.png" alt="16 international awards" class="awards-img" />
+          </div>
+          <div class="card-cta">View case study <span class="card-arrow">→</span></div>
+        </div>
+        <div class="card-visual">
+          <img src="images/image 7209.png" alt="FFManager platform — match score screen" loading="lazy" />
+        </div>
+      </a>
+
+      <!-- Ozon Rocket -->
+      <a href="/work/ozon-rocket" class="card reveal">
+        <div class="card-text">
+          <div class="card-tags">
+            <span class="tag-filled">B2B2C</span>
+            <span class="tag-outline">Logistics</span>
+            <span class="tag-outline">Enterprise</span>
+          </div>
+          <p class="card-meta">Ozon Rocket · 2021–2022</p>
+          <h2 class="card-title">B2B2C delivery platform</h2>
+          <p class="card-desc">Sole designer at one of Russia's largest delivery networks. Took 2 core modules from 0→1 and introduced design review and handoff processes for a team of 10.</p>
+          <div class="card-cta">View case study <span class="card-arrow">→</span></div>
+        </div>
+        <div class="card-visual">
+          <img src="images/image 7210.png" alt="Ozon Rocket — B2B logistics cabinet" loading="lazy" />
+        </div>
+      </a>
+
+      <!-- Netology -->
+      <a href="/work/netology" class="card reveal">
+        <div class="card-text">
+          <div class="card-tags">
+            <span class="tag-filled">B2C</span>
+            <span class="tag-outline">EdTech</span>
+            <span class="tag-outline">130K+ users</span>
+          </div>
+          <p class="card-meta">Netology · 2019–2020</p>
+          <h2 class="card-title">LMS messaging hub</h2>
+          <p class="card-desc">Product designer on the LMS at Russia's largest online university. Overhauled messaging — operator response time dropped from 1.5 days to 30 minutes within 2 months.</p>
+          <div class="card-cta">View case study <span class="card-arrow">→</span></div>
+        </div>
+        <div class="card-visual">
+          <img src="images/card-visual.png" alt="Netology messaging system — mobile screens" loading="lazy" />
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ─── About ─────────────────────────────────────────────── -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-photo reveal">
+        <img src="images/Me.png" alt="Natalie Chernoivanova" />
+      </div>
+      <div class="about-content reveal">
+        <div>
+          <div class="hero-badges" style="margin-bottom: 20px;">
+            <span class="badge"><span class="badge-dot"></span>Open to work</span>
+            <span class="badge" style="background: var(--border); border-color: var(--border);">Berlin, Germany</span>
+          </div>
+          <h2 class="about-headline">Natalie Cher<br><em>Senior Product</em><br><em>Designer</em></h2>
+        </div>
+        <p class="about-bio">
+          I'm a product designer with 9+ years focused on B2B and B2C products — logistics platforms, sports analytics tools, learning management systems. I've most often worked as the sole designer on a cross-functional team, owning everything from research to developer handoff. Outside product work, I bring strong visual craft — typography, illustration, and graphic design.
+        </p>
+        <div class="about-ctas">
+          <a href="https://www.slideshare.net/slideshow/natalie-cher-senior-product-designer-berlin/287325299?utm_source=clipboard_share_button&utm_campaign=slideshare_make_sharing_viral_v2&utm_variation=variant&utm_medium=share" target="_blank" rel="noopener" class="btn-primary">Open CV ↗</a>
+          <a href="https://www.linkedin.com/in/natalia-chernoivanova-967425134/" target="_blank" rel="noopener" class="btn-ghost">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Contact ─────────────────────────────────────────────── -->
+  <section class="contact" id="contact">
+    <p class="section-label reveal">Get in touch</p>
+    <h2 class="contact-headline reveal">Let's work together</h2>
+    <p class="contact-sub reveal">Open to full-time roles in Berlin and remote across Europe.</p>
+    <div class="contact-email-wrap reveal">
+      <a href="mailto:hi@chernata.works" class="contact-email">hi@chernata.works</a>
+      <div class="contact-email-line"></div>
+    </div>
+    <a href="https://t.me/chernata" target="_blank" rel="noopener" class="btn-ghost reveal" style="margin-top: 8px;">Telegram</a>
+  </section>
+
+  <!-- ─── Footer ─────────────────────────────────────────────── -->
+  <footer class="footer">
+    <span>© 2026 Natalie Cher</span>
+    <div class="footer-links">
+      <a href="mailto:hi@chernata.works" class="footer-link">hi@chernata.works</a>
+      <a href="https://t.me/chernata" target="_blank" rel="noopener" class="footer-link">Telegram</a>
+      <a href="https://www.linkedin.com/in/natalia-chernoivanova-967425134/" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      }),
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+      el.style.transitionDelay = `${i * 0.05}s`;
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>

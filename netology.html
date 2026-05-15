@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Netology Messaging — Natalie Chernoivanova</title>
+  <meta name="description" content="Replacing scattered communication for Russia's largest online IT university. Case study by Natalie Chernoivanova." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    @font-face {
+      font-family: 'GT Pressura Mono';
+      src: url('fonts/GT-Pressura-LCGV-Mono-Regular.otf') format('opentype');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'GT Pressura Mono';
+      src: url('fonts/GT-Pressura-LCGV-Mono-Medium.otf') format('opentype');
+      font-weight: 500; font-style: normal; font-display: swap;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --white:      #ffffff;
+      --gray-light: #f2f2f0;
+      --near-black: #0f0f0e;
+      --accent:     #ff5f30;
+      --border:     #e4e4e0;
+      --gray-mid:   #6b6b6b;
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --font-sans:  'Manrope', sans-serif;
+      --font-mono:  'GT Pressura Mono', 'Courier New', monospace;
+      --ease-out:   cubic-bezier(0.22, 1, 0.36, 1);
+      --content-max: 760px;
+      --page-pad: 120px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--white);
+      color: var(--near-black);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* ─── Navbar ─────────────────────────────────────────────── */
+    .navbar {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; justify-content: center;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .nav-pill {
+      display: flex; align-items: center; gap: 28px;
+      padding: 8px 8px 8px 14px;
+      background: rgba(255,255,255,0.95);
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      transition: box-shadow 0.2s var(--ease-out);
+    }
+    .nav-pill:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-logo-mark { width: 34px; height: 34px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+    .nav-logo-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .nav-name { font-family: var(--font-sans); font-size: 15px; font-weight: 500; letter-spacing: -0.015em; color: var(--near-black); }
+    .nav-link { font-family: var(--font-sans); font-size: 15px; font-weight: 500; color: var(--gray-mid); letter-spacing: -0.015em; transition: color 0.18s; }
+    .nav-link:hover { color: var(--near-black); }
+    .btn-talk {
+      font-family: var(--font-mono); font-size: 13px; font-weight: 500;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      color: var(--white); background: var(--near-black);
+      border-radius: 9999px; padding: 9px 18px 8px;
+      transition: background 0.18s, transform 0.18s;
+    }
+    .btn-talk:hover { background: var(--accent); transform: scale(1.02); }
+
+    /* ─── Back link ─────────────────────────────────────────── */
+    .back-wrap { padding: 40px var(--page-pad) 0; max-width: calc(1200px + var(--page-pad) * 2); margin: 0 auto; }
+    .back-link {
+      font-family: var(--font-sans); font-size: 18px;
+      color: var(--gray-mid); letter-spacing: -0.015em;
+      transition: color 0.18s;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .back-link:hover { color: var(--near-black); }
+
+    /* ─── Header ─────────────────────────────────────────────── */
+    .case-header {
+      padding: 44px var(--page-pad) 48px;
+      max-width: calc(1200px + var(--page-pad) * 2);
+      margin: 0 auto;
+    }
+    .case-tags { display: flex; gap: 6px; margin-bottom: 20px; }
+    .tag-filled {
+      font-family: var(--font-mono); font-size: 14px; font-weight: 500;
+      letter-spacing: 0.04em; color: var(--white); background: var(--near-black);
+      border-radius: 9999px; padding: 4px 12px 5px;
+    }
+    .tag-outline {
+      font-family: var(--font-mono); font-size: 14px;
+      color: var(--gray-mid); background: var(--gray-light);
+      border-radius: 9999px; padding: 4px 12px 6px;
+    }
+    .case-title {
+      font-family: var(--font-serif); font-style: normal; font-weight: 400;
+      font-size: clamp(40px, 4.5vw, 66px);
+      line-height: 1.0; letter-spacing: -0.01em;
+      color: var(--near-black);
+      max-width: 1200px; margin-bottom: 48px;
+    }
+    .case-title em { font-style: italic; color: var(--accent); }
+
+    /* ─── Meta row ───────────────────────────────────────────── */
+    .meta-row {
+      display: flex; align-items: flex-start;
+      max-width: 1200px; padding-top: 8px;
+    }
+    .meta-item {
+      display: flex; flex-direction: column; gap: 4px;
+      padding-right: 24px;
+    }
+    .meta-item + .meta-item {
+      border-left: 1px solid var(--border);
+      padding-left: 16px;
+    }
+    .meta-label {
+      font-family: var(--font-mono); font-size: 14px;
+      color: var(--accent); text-transform: uppercase;
+      line-height: normal;
+    }
+    .meta-value {
+      font-family: var(--font-sans); font-size: 15px;
+      color: var(--near-black); line-height: 1.47;
+      letter-spacing: -0.015em;
+    }
+    .meta-item:nth-child(1) { width: 160px; flex-shrink: 0; }
+    .meta-item:nth-child(2) { width: 216px; flex-shrink: 0; }
+    .meta-item:nth-child(3) { width: 276px; flex-shrink: 0; }
+    .meta-item:nth-child(4) { width: 216px; flex-shrink: 0; }
+    .meta-item:nth-child(5) { width: 176px; flex-shrink: 0; }
+
+    /* ─── Hero image (1200px) ────────────────────────────────── */
+    .hero-img-wrap {
+      padding: 0 var(--page-pad);
+      max-width: calc(1200px + var(--page-pad) * 2);
+      margin: 0 auto;
+    }
+    .hero-img {
+      width: 100%; max-width: 1200px;
+      height: auto; border-radius: 32px;
+      display: block; object-fit: cover;
+    }
+
+    /* ─── Content column (760px) ─────────────────────────────── */
+    .content-col {
+      padding: 0 var(--page-pad);
+      max-width: calc(var(--content-max) + var(--page-pad) * 2);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ─── Spacers ─────────────────────────────────────────────── */
+    .spacer-14 { height: 14px; }
+    .spacer-16 { height: 16px; }
+    .spacer-40 { height: 40px; }
+    .spacer-64 { height: 64px; }
+
+    /* ─── Section label ───────────────────────────────────────── */
+    .section-label {
+      font-family: var(--font-mono); font-size: 14px;
+      color: var(--accent); display: block;
+    }
+
+    /* ─── Body text ───────────────────────────────────────────── */
+    .body-text {
+      font-family: var(--font-sans); font-size: 18px;
+      line-height: 1.6; letter-spacing: -0.015em;
+      color: var(--near-black); max-width: var(--content-max);
+    }
+    .body-text p + p { margin-top: 1em; }
+    .body-text ul { padding-left: 27px; }
+    .body-text li { margin-bottom: 0; }
+    .body-text strong { font-weight: 700; }
+
+    /* ─── Serif h2 ────────────────────────────────────────────── */
+    .section-headline {
+      font-family: var(--font-serif); font-style: normal; font-weight: 400;
+      font-size: 49px; line-height: 1.05; letter-spacing: -0.015em;
+      color: var(--near-black); max-width: var(--content-max);
+    }
+
+    /* ─── Case images ─────────────────────────────────────────── */
+    .case-img {
+      width: 100%; max-width: var(--content-max);
+      display: block; object-fit: contain;
+    }
+
+    /* ─── Next project ────────────────────────────────────────── */
+    .next-section {
+      background: var(--gray-light);
+      padding: 64px var(--page-pad);
+      margin-top: 64px;
+    }
+    .next-section-inner {
+      max-width: calc(1200px + var(--page-pad) * 2);
+      margin: 0 auto;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .next-label {
+      font-family: var(--font-mono); font-size: 14px;
+      text-transform: uppercase; color: var(--accent); display: block;
+    }
+    .next-card {
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--white); border-radius: 20px;
+      padding: 36px 40px; max-width: 1200px;
+      transition: box-shadow 0.2s var(--ease-out);
+      text-decoration: none; color: inherit;
+    }
+    .next-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.07); }
+    .next-card:hover .next-arrow { transform: translateX(4px); }
+    .next-card-body { display: flex; flex-direction: column; gap: 6px; }
+    .next-title {
+      font-family: var(--font-serif); font-style: normal; font-weight: 400;
+      font-size: 49px; line-height: 1.05; letter-spacing: -0.015em;
+      color: var(--near-black);
+    }
+    .next-sub {
+      font-family: var(--font-sans); font-size: 15px;
+      color: var(--gray-mid); letter-spacing: -0.015em; line-height: 1.47;
+    }
+    .next-arrow {
+      font-family: var(--font-sans); font-size: 28px;
+      color: var(--accent); flex-shrink: 0;
+      transition: transform 0.2s var(--ease-out);
+    }
+
+    /* ─── Animations ──────────────────────────────────────────── */
+    .reveal { opacity: 0; transition: opacity 0.65s var(--ease-out); }
+    .reveal.visible { opacity: 1; }
+
+    /* ─── Mobile ──────────────────────────────────────────────── */
+    @media (max-width: 1100px) { :root { --page-pad: 60px; } }
+    @media (max-width: 860px) {
+      :root { --page-pad: 24px; }
+      .hero-img { border-radius: 20px; }
+      .meta-row { flex-direction: column; gap: 20px; }
+      .meta-item + .meta-item { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 16px; }
+      .meta-item:nth-child(1),
+      .meta-item:nth-child(2),
+      .meta-item:nth-child(3),
+      .meta-item:nth-child(4),
+      .meta-item:nth-child(5) { width: auto; }
+      .case-title { font-size: clamp(32px, 7vw, 48px); }
+      .section-headline { font-size: clamp(28px, 6vw, 40px); }
+      .next-title { font-size: 32px; }
+    }
+    @media (max-width: 480px) {
+      .case-title { font-size: 30px; }
+      .body-text { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── Navbar ─────────────────────────────────────────────── -->
+  <nav class="navbar">
+    <div class="nav-pill">
+      <a href="/" class="nav-logo">
+        <div class="nav-logo-mark">
+          <img src="images/Ellipse.png" alt="Natalie Cher logo" />
+        </div>
+        <span class="nav-name">Natalie Cher</span>
+      </a>
+      <a href="/#work" class="nav-link">Work</a>
+      <a href="/#about" class="nav-link">About</a>
+      <a href="mailto:hi@chernata.works" class="btn-talk">Let's talk</a>
+    </div>
+  </nav>
+
+  <!-- ─── Back ────────────────────────────────────────────────── -->
+  <div class="back-wrap">
+    <a href="/" class="back-link">← Back</a>
+  </div>
+
+  <!-- ─── Header ──────────────────────────────────────────────── -->
+  <header class="case-header">
+    <div class="case-tags">
+      <span class="tag-filled">B2C</span>
+      <span class="tag-outline">EdTech</span>
+    </div>
+    <h1 class="case-title"><em>Netology:</em> Replacing scattered communication for Russia's largest online IT university</h1>
+    <div class="meta-row">
+      <div class="meta-item">
+        <span class="meta-label">Year</span>
+        <span class="meta-value">2017 – 2021</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Role</span>
+        <span class="meta-value">Senior Product Designer on a cross-functional team</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">SERVICES</span>
+        <span class="meta-value">Product Design, User-testing, Research, Design System</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Platform</span>
+        <span class="meta-value">Desktop Web</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Scale</span>
+        <span class="meta-value">130K+ users</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── Hero: Rectangle 565053.png ──────────────────────────── -->
+  <div class="hero-img-wrap reveal">
+    <img src="images/Rectangle 565053.png" alt="Netology platform overview" class="hero-img" />
+  </div>
+
+  <!-- ─── OVERVIEW ────────────────────────────────────────────── -->
+  <div class="spacer-40"></div>
+  <div class="content-col">
+    <span class="section-label reveal">OVERVIEW</span>
+    <div class="spacer-14"></div>
+    <div class="body-text reveal">
+      <p>Netology is the largest online university in the Russian-speaking space, specializing in training specialists in the IT field.</p>
+      <p>During my time at Netology, I focused on developing learning management systems and various internal interfaces for the platform.</p>
+    </div>
+  </div>
+
+  <!-- ─── MAJOR ACHIEVEMENTS ──────────────────────────────────── -->
+  <div class="spacer-64"></div>
+  <div class="content-col">
+    <span class="section-label reveal">Major achievements</span>
+    <div class="spacer-14"></div>
+    <div class="body-text reveal">
+      <p>Over my 3.5 years at Netology, I played a leading role in several major releases that addressed these issues and improved the platform. I have accomplished the following:</p>
+      <ul>
+        <li>Created a forum on the platform to allow students to collaborate with ease</li>
+        <li>Developed new interactive learning content to improve the overall learning experience</li>
+        <li>Optimized the content management systems for better usability and convenience</li>
+        <li>Completely redesigned the entire platform, making it more visually appealing and modern. This included integrating a comprehensive UI kit</li>
+        <li>Developed a messaging system between students and coordinators that evolved from a Minimum Viable Product (MVP) into a standalone project</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ─── CASE STUDY ───────────────────────────────────────────── -->
+  <div class="spacer-64"></div>
+  <div class="content-col">
+    <span class="section-label reveal">CASE STUDY</span>
+    <div class="spacer-14"></div>
+    <h2 class="section-headline reveal">Messaging system</h2>
+    <div class="spacer-14"></div>
+
+    <!-- 1: MacBook Pro 14_ - 4 1.png -->
+    <div style="overflow:hidden;border-radius:16px;max-width:var(--content-max);" class="reveal">
+      <img src="images/MacBook Pro 14_ - 4 1.png" alt="Netology messaging system — desktop view" style="width:100%;display:block;object-fit:cover;" />
+    </div>
+
+    <div class="spacer-14"></div>
+    <div class="body-text reveal">
+      <p>Our support teams previously used several tools to connect with our users, such as email, messengers, social media platforms, and an expensive help desk tool that was not customizable for all our needs. The use of scattered communication channels outside our platform led to confusion, delays, and poor customer satisfaction. To address these issues, our team decided to create an MVP ticket system as an experiment to improve our students' support and provide our support team with robust analytics tools. If this experiment proves successful, we plan to continue developing the ticket system further.</p>
+    </div>
+  </div>
+
+  <!-- ─── PROBLEMS ─────────────────────────────────────────────── -->
+  <div class="spacer-64"></div>
+  <div class="content-col">
+    <span class="section-label reveal">PROBLEMS</span>
+    <div class="spacer-14"></div>
+    <div class="body-text reveal">
+      <ul>
+        <li>the average response time to our students was quite long (taking around 36 hours)</li>
+        <li>scattered communication channels (email, Telegram, Whatsapp, Facebook, etc.)</li>
+        <li>lack of tools available to measure customers' satisfaction and operators' performance</li>
+        <li>having an expensive third-party help desk tool that does not meet the needs of all our support team</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ─── GOAL ──────────────────────────────────────────────────── -->
+  <div class="spacer-64"></div>
+  <div class="content-col">
+    <span class="section-label reveal">GOAL</span>
+    <div class="spacer-14"></div>
+    <div class="body-text reveal">
+      <ul>
+        <li>to understand how the audience perceives the landing page</li>
+        <li>to determine what they pay attention to first</li>
+        <li>is there enough information to make a decision</li>
+        <li>evaluate how convenient it is to search for important information</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ─── PROCESS ───────────────────────────────────────────────── -->
+  <div class="spacer-64"></div>
+  <div class="content-col">
+    <span class="section-label reveal">PROCESS</span>
+    <div class="spacer-14"></div>
+    <div class="body-text reveal">
+      <p><strong>MVP and feedback.</strong> Our plan on this stage was to create a minimum viable product (MVP) for a ticket system and determine if we should continue developing it or switch to another third-party help desk tool. We had a few weeks and a team of developers to accomplish this.</p>
+      <p>The ticket system consisted of two interfaces: one for students and the other for the support team. To ensure we didn't miss any important details, we decided to create the student interface first. My goal was to create an effortless and seamless experience for our students. The aim was to smoothly connect them with the right support operator while unobtrusively asking them about their problem. I suggested designing an interface that resembled a chatbot simulation, so that additional questions related to the topic of the chat wouldn't feel intrusive. At the start of the conversation with the bot, the user would select one of six topics and then answer a series of questions to help direct their request to the appropriate support team. The conversation with the bot was quite realistic, and when I tested the interface with our students, they did not face any issues.</p>
+      <p>I also created a cute chatbot character that would be hard to get mad at, even if it occasionally froze :)</p>
+    </div>
+
+    <!-- 2: image 722677.png -->
+    <div class="spacer-14"></div>
+    <img src="images/image 722677.png" alt="Student chatbot interface" class="case-img reveal" />
+
+    <div class="spacer-14"></div>
+    <div class="body-text reveal">
+      <p>To create a minimum viable product (MVP) interface for the support team, I conducted user interviews with 2-3 members from each team, including technical support, sales, and learning coordinators. During the interviews, I asked detailed questions about their specific work requirements and issues. After compiling the responses, I created a list of the most important issues that my team and I decided to include in the first iteration. The first iteration consisted of a unified interface for all the operators, along with basic information about each student, such as the page they started the conversation from, courses attended, and previous conversations. Once our team completed the implementation of the MVP, we received very positive first statistics. The average answer time decreased from 1.5 days to just a few hours, and the operators were thrilled with the new interface, actively asking us to continue developing it.</p>
+    </div>
+
+    <!-- 3: image 7232.png -->
+    <div class="spacer-14"></div>
+    <div style="overflow:hidden;border-radius:16px;max-width:var(--content-max);" class="reveal">
+      <img src="images/image 7232.png" alt="Operator interface — first iteration" style="width:100%;display:block;" />
+    </div>
+
+    <div class="spacer-14"></div>
+    <div class="body-text reveal">
+      <p><strong>Next iterations and results.</strong> During the next few iterations, I added several useful features to the ticket system. One of the most significant was the creation of a dashboard that displayed operators' performance statistics based on user feedback. This feature proved very helpful for measuring operators' workload and customer satisfaction. I also added many other interesting features to the interface, such as the ability to chat with multiple operators at once, integration with Jira, a chat feature exclusively for operators without students, mobile interfaces for the entire ticket system, and statistics on students' course performance. The entire project was completed in seven iterations (where one iteration is equivalent to one sprint) in three months. After the system was launched, the average response time of an operator to a request was reduced to less than 30 minutes within two months, greatly improving customer satisfaction.</p>
+    </div>
+
+    <!-- 4: image 7233.png -->
+    <div class="spacer-14"></div>
+    <div style="overflow:hidden;border-radius:16px;max-width:var(--content-max);" class="reveal">
+      <img src="images/image 7233.png" alt="Ticket system — next iterations" style="width:100%;display:block;object-fit:contain;" />
+    </div>
+
+    <!-- 5: image 756230.png -->
+    <div class="spacer-14"></div>
+    <div style="overflow:hidden;border-radius:16px;max-width:var(--content-max);" class="reveal">
+      <img src="images/image 756230.png" alt="Operator interface — expanded" style="width:100%;display:block;" />
+    </div>
+
+    <!-- 6: image 723674.png -->
+    <div class="spacer-14"></div>
+    <div style="overflow:hidden;border-radius:16px;max-width:var(--content-max);" class="reveal">
+      <img src="images/image 723674.png" alt="Operator dashboard — performance statistics" style="width:100%;display:block;object-fit:contain;" />
+    </div>
+
+    <!-- 7: SC345.png -->
+    <div class="spacer-14"></div>
+    <div style="overflow:hidden;border-radius:16px;max-width:var(--content-max);" class="reveal">
+      <img src="images/SC345.png" alt="Ticket system — additional features" style="width:100%;display:block;object-fit:contain;" />
+    </div>
+
+    <!-- 6: image 723156.png -->
+    <div class="spacer-14"></div>
+    <div style="overflow:hidden;border-radius:16px;max-width:var(--content-max);" class="reveal">
+      <img src="images/image 723156.png" alt="Mobile ticket system interface" style="width:100%;display:block;" />
+    </div>
+  </div>
+
+  <div class="spacer-64"></div>
+
+  <!-- ─── Next project ──────────────────────────────────────────── -->
+  <div class="next-section">
+    <div class="next-section-inner">
+      <span class="next-label">Next project</span>
+      <a href="ffmanager.html" class="next-card">
+        <div class="next-card-body">
+          <div class="next-title">FF Manager — Coaching Platform</div>
+          <div class="next-sub">0→1 · 16 Awards · B2B · 2024–Present</div>
+        </div>
+        <div class="next-arrow">→</div>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      }),
+      { threshold: 0.08, rootMargin: '0px 0px -32px 0px' }
+    );
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+      el.style.transitionDelay = `${Math.min(i * 0.03, 0.2)}s`;
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
